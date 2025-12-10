@@ -1,220 +1,204 @@
-@import url('https://fonts.cdnfonts.com/css/satoshi');
+ :root{
+      --accent: #ef3a45;
+      --nav-height: 72px;
+      --card-radius: 36px;
+      --page-width: 1200px;
+    }
 
-/* RESET */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Outfit", sans-serif;
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:"Outfit",system-ui,Arial,sans-serif;color:#111;background:#fff;overflow-x:hidden}
 
-}
+    /* PAGE FRAME (centered content area and side gutters) */
+    .page-frame {
+      max-width: var(--page-width);
+      margin: 0 auto;
+      padding: 0 16px;
+      position: relative;
+    }
 
-body {
-  
-  color: #1a1a1a;
-  line-height: 1.6;
-}
+    /* NAVBAR (fixed) */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: var(--nav-height);
+      background: #ffffff;
+      display:flex;
+      align-items:center;
+      z-index:1200;
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+      padding: 0 8px;
+    }
+    .navbar .container {
+      width:100%;
+      max-width: var(--page-width);
+      margin:0 auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
 
-html, body {
-  width: 100%;
-  overflow-x: hidden;
-}
-/* PAGE FRAME (CENTERED WEBSITE WITH SIDE BORDER) */
-.page-frame {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 5px;
-  box-shadow:
-    inset 1px 0 0 rgba(255,255,255,0.06),
-    inset -1px 0 0 rgba(255,255,255,0.06);
-}
+    .logo img{ height:36px; display:block }
 
-/* CONTAINER */
-.container {
-  width: 100%;
-  max-width: 1150px;
-  margin: 0 auto;
-}
+    .nav-left { display:flex; align-items:center; gap:28px; }
+    .nav-menu { display:flex; gap:26px; list-style:none; margin:0; padding:0; align-items:center }
+    .nav-menu li { position:relative }
+    .nav-menu a, .dropdown-btn {
+      color:#121212;
+      text-decoration:none;
+      font-size:16px;
+      font-weight:600;
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+    }
 
-/* NAVBAR */
-.navbar {
-  width: 100%;
-  background: #fff;
-  border-bottom: 1px solid #eee;
-  position: sticky;
-  top: 0;
-  z-index: 999;
-}
+    .chev {
+      display:inline-block;
+      transition: transform .25s ease;
+      font-size:12px;
+      color:#444;
+    }
+    .dropdown-btn.open .chev { transform: rotate(180deg); }
 
-.navbar-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 18px 0;
-  position: relative;
-}
+    .nav-right { display:flex; gap:20px; align-items:center }
+    .nav-right a { color:#121212; text-decoration:none; font-weight:500 }
+    .contact-btn {
+      background: var(--accent);
+      color:#fff;
+      border:0;
+      padding:10px 18px;
+      border-radius:28px;
+      font-weight:700;
+      cursor:pointer;
+    }
 
-.logo img {
-  height: 42px;
-}
+    /* PAGE CONTENT (placeholder so the menu sits below navbar) */
+    main { padding-top: calc(var(--nav-height) + 8px); min-height:120vh }
 
-.nav-left {
-  display: flex;
-  align-items: center;
-}
+    /* MEGA MENU OVERLAY (covers full width area under navbar) */
+    .mega-overlay {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: calc(var(--nav-height));
+      pointer-events: none; /* when hidden, ignore taps */
+      z-index: 1100;
+    }
 
-.nav-menu {
-  display: flex;
-  list-style: none;
-  gap: 32px;
-  margin-left: 45px;
-}
+    /* The visible card is centered inside the page-frame; we make overlay full width and center a card */
+    .mega-card {
+      width: calc(100% - 64px); /* small gutter left/right */
+      max-width: calc(var(--page-width) - 32px);
+      margin: 18px auto;
+      background: #fff;
+      border-radius: var(--card-radius);
+      box-shadow:
+        0 10px 30px rgba(18,18,18,0.07),
+        0 2px 6px rgba(18,18,18,0.05);
+      overflow: visible;
+      transform-origin: top center;
+      opacity: 0;
+      transform: translateY(-6px) scale(.995);
+      transition: opacity .22s ease, transform .22s ease;
+      pointer-events: auto;
+    }
 
-.nav-menu a {
-  color: #000;
-  text-decoration: none;
-  font-size: 16px;
-  font-weight: 500;
-}
+    /* when active */
+    .mega-card.open {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
 
-/* RIGHT SIDE */
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-}
+    /* content inside the card */
+    .mega-inner {
+      padding: 46px 64px 110px 64px; /* leave space for bottom black bar */
+      border-radius: var(--card-radius);
+      background: linear-gradient(#fff, #fff);
+      position: relative;
+    }
 
-.nav-right a {
-  color: #000;
-  text-decoration: none;
-  font-size: 16px;
-  font-weight: 500;
-}
+    /* big title */
+    .mega-title {
+      font-size: 36px;
+      font-weight: 800;
+      margin-bottom: 28px;
+      color: #111;
+    }
 
-.contact-btn {
-  background: #e63946;
-  color: #fff;
-  padding: 10px 20px;
-  border-radius: 30px;
-  border: none;
-  cursor: pointer;
-}
+    /* two column layout for the content area */
+    .mega-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 44px 80px;
+      align-items: start;
+    }
 
-/* DROPDOWN */
-.dropdown {
-  position: relative;
-}
+    .mega-col { min-width: 0 }
 
-.dropdown-btn {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  cursor: pointer;
-}
+    .mega-col h4 {
+      font-size: 18px;
+      font-weight: 700;
+      margin: 14px 0 10px;
+      color: #0e0e0e;
+    }
+    .mega-col p {
+      color: #8b8b92;
+      margin: 0 0 22px 0;
+      line-height:1.7;
+      font-size:15px;
+    }
 
-.chevron {
-  font-size: 13px;
-  transition: .25s;
-}
+    /* clickable sublinks (small links that go red on hover) */
+    .mega-link {
+      display:block;
+      color:#6b6b74;
+      text-decoration:none;
+      padding: 6px 0;
+      font-size:15px;
+      transition: color .15s ease;
+      font-weight:600;
+    }
+    .mega-link:hover { color: var(--accent) }
 
-.dropdown:hover .chevron {
-  transform: rotate(180deg);
-}
+    /* bottom black strip inside the card */
+    .mega-bottom-strip {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -18px; /* overlap outside the card */
+      height: 72px;
+      background: #000;
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+      z-index: 5;
+    }
 
-/* MEGA MENU */
-.mega-menu {
-  position: absolute;
-  left: 50%;
-  top: 60px;
-  transform: translateX(-50%);
-  background: #ffffff;
-  width: 100vw;
-  max-width: 1150px;
-  padding: 60px 70px;
-  border-radius: 18px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.10);
+    /* ensure card doesn't overflow to the sides on small screens */
+    @media (max-width: 1200px) {
+      .mega-card { width: calc(100% - 40px) }
+    }
 
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: .3s ease;
-  z-index: 999;
-}
+    @media (max-width: 880px) {
+      .mega-inner { padding: 28px 28px 100px 28px }
+      .mega-grid { grid-template-columns: 1fr }
+      .mega-title { font-size: 28px }
+      .mega-card { margin: 12px }
+    }
 
-.mega-content {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 26px;
-}
+    /* small aesthetic: reduce pointer-events except on open card */
+    .mega-overlay.hidden { display:none }
 
-.mega-column h3 {
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 8px;
-}
+    /* subtle focus outlines for keyboard nav */
+    .dropdown-btn:focus, .mega-link:focus, .nav-menu a:focus, .contact-btn:focus {
+      outline: 3px solid rgba(235, 62, 76, 0.15);
+      outline-offset: 3px;
+    }
 
-.mega-column p {
-  font-size: 14px;
-  color: #555;
-  line-height: 1.45;
-}
-
-
-/* SHOW */
-.dropdown:hover .mega-menu {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-}
-
-/* HEADER */
-.menu-header {
-  margin-bottom: 28px;
-}
-
-.menu-header h2 a {
-  font-size: 23px;
-  font-weight: 700;
-  color: #000;
-  text-decoration: none;
-}
-
-/* GRID */
-.menu-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 26px;
-}
-
-/* CARD */
-.menu-card {
-  display: block;
-  padding: 22px;
-  background: #f9fafb;
-  border-radius: 14px;
-  text-decoration: none;
-  color: #000;
-  border: 1px solid transparent;
-  transition: 0.25s;
-}
-
-.menu-card:hover {
-  background: #eef2f7;
-  border-color: #e5e7eb;
-  transform: translateY(-4px);
-}
-
-.menu-card h3 {
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 8px;
-}
-
-.menu-card p {
-  font-size: 14px;
-  color: #555;
-  line-height: 1.45;
-}
+    /* keep the overlay area tall enough so moving the mouse inside the card doesn't close */
+    .mega-overlay .spacer { height: 16px }
 
 
 /* Hero Layout */
@@ -1094,6 +1078,7 @@ html, body {
   color: #ddd;
   padding: 90px 0px 3px 20px;
   font-family: "Outfit", sans-serif;
+  padding-left: 130px;
 }
 
 .footer-logo {

@@ -5,114 +5,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>10 Academy</title>
     <link rel="stylesheet" href="../Style/Home.css"> 
+      <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<header>
-  <nav class="navbar">
-    <div class="container navbar-inner">
 
-      <!-- LEFT -->
+<header class="navbar" role="navigation" aria-label="top navigation">
+    <div class="container">
       <div class="nav-left">
-
-        <!-- Logo -->
-        <a href="/" class="logo">
-          <img src="../Image/logo.png" alt="logo">
+        <a class="logo" href="#">
+          <!-- small logo; replace with your actual image if needed -->
+          <img src="https://via.placeholder.com/110x40/ef3a45/fff?text=IO" alt="logo">
         </a>
 
-        <!-- Menu -->
-        <ul class="nav-menu">
-
-          <!-- SOLUTIONS -->
-          <li class="dropdown">
-            <div class="dropdown-btn">
-              Solutions <span class="chevron">▼</span>
-            </div>
-
-            <div class="mega-menu">
-              <div class="mega-content">
-
-                <div class="mega-column">
-                  <h3>For Trainees</h3>
-                  <p>
-                    Personalized, job-aligned training in AI & Data.
-                  </p>
-                </div>
-
-                <div class="mega-column">
-                  <h3>For Universities</h3>
-                  <p>
-                    Deliver instant personalized grading with TenX.
-                  </p>
-                </div>
-
-                <div class="mega-column">
-                  <h3>For Companies</h3>
-                  <p>
-                    Upskill teams through contextualized training.
-                  </p>
-                </div>
-
-                <div class="mega-column">
-                  <h3>For Funders</h3>
-                  <p>
-                    Invest in workforce development at scale.
-                  </p>
-                </div>
-
-              </div>
+        <ul class="nav-menu" role="menubar" aria-label="Main">
+          <li class="dropdown" data-menu="solutions" role="none">
+            <div class="dropdown-btn" role="menuitem" aria-expanded="false" tabindex="0">
+              Solutions <span class="chev">▾</span>
             </div>
           </li>
 
-          <!-- TRAININGS -->
-          <li class="dropdown">
-            <div class="dropdown-btn">
-              Trainings <span class="chevron">▼</span>
-            </div>
-
-            <div class="mega-menu">
-              <div class="mega-content">
-
-                <div class="mega-column">
-                  <h3>Overview</h3>
-                  <p>All learning tracks at a glance.</p>
-                </div>
-
-                <div class="mega-column">
-                  <h3>Intensive Training</h3>
-                  <p>Launch your AI & Data career.</p>
-                </div>
-
-                <div class="mega-column">
-                  <h3>University to Jobs</h3>
-                  <p>Bridge academics and industry.</p>
-                </div>
-
-                <div class="mega-column">
-                  <h3>KAIM</h3>
-                  <p>Build AI engineers for FinTech.</p>
-                </div>
-
-              </div>
+          <li class="dropdown" data-menu="trainings" role="none">
+            <div class="dropdown-btn" role="menuitem" aria-expanded="false" tabindex="0">
+              Trainings <span class="chev">▾</span>
             </div>
           </li>
 
-          <li><a href="#">Product</a></li>
-          <li><a href="#">Impact</a></li>
-
+          <li role="none"><a href="#" role="menuitem">Product</a></li>
+          <li role="none"><a href="#" role="menuitem">Impact</a></li>
         </ul>
       </div>
 
-      <!-- RIGHT -->
       <div class="nav-right">
         <a href="#">Blog</a>
         <a href="#">About us</a>
         <button class="contact-btn">Contact us →</button>
       </div>
 
+      
     </div>
-  </nav>
-</header>
+  </header>
+
+  
+<!-- ======================================================
+     MEGA MENU OVERLAY + CARD (matches your CSS exactly)
+====================================================== -->
+<div id="megaOverlay" class="mega-overlay hidden" aria-hidden="true">
+
+    <!-- small spacer to avoid accidental close -->
+    <div class="spacer"></div>
+
+    <div id="megaCard" class="mega-card">
+
+        <div class="mega-inner">
+
+            <!-- Title -->
+            <h3 id="megaTitle" class="mega-title"></h3>
+
+            <!-- GRID LAYOUT -->
+            <div class="mega-grid">
+
+                <div id="colLeft" class="mega-col"></div>
+
+                <div id="colRight" class="mega-col"></div>
+
+            </div>
+
+        </div>
+
+        <!-- black rounded strip -->
+        <div class="mega-bottom-strip"></div>
+
+    </div>
+</div>
+
+
+
 
 
 
