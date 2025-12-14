@@ -5,12 +5,8 @@
    --page-width: 1200px;
  }
 
- * {
-   box-sizing: border-box
- }
 
- html,
- body {
+ html,  body {
    height: 100%;
    margin: 0;
    font-family: "Outfit", system-ui, Arial, sans-serif;
@@ -19,9 +15,6 @@
  }
 
 
- body {
-   font-family: "Outfit", "Outfit Fallback", Outfit, sans-serif;
- }
 
 
  /* PAGE FRAME (centered content area and side gutters) */
@@ -45,14 +38,15 @@
   width: 100vw;
   height: 1px;
   background: rgba(0, 0, 0, 0.04); /* light gray */
-  margin-left: 50%;
-  transform: translateX(-50%);
+
 }
 
 
 
 
  /* NAVBAR (fixed) */
+
+
  .navbar {
    position: fixed;
    top: 0;
@@ -61,10 +55,8 @@
    height: var(--nav-height);
    background: #ffffff;
    display: flex;
-   align-items: center;
-   z-index: 1200;
+   z-index: 1;
    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
-   padding: 0 8px;
  }
 
  .navbar .container {
@@ -78,23 +70,22 @@
 
  .logo img {
    height: 46px;
-   display: block
+   
  }
+ 
 
  .nav-left {
    display: flex;
-   align-items: center;
    gap: 28px;
  }
 
- .nav-menu {
+ .nav-menu  {
    display: flex;
    gap: 26px;
    list-style: none;
    margin: 0;
    padding: 0;
    align-items: center;
-   color: #303135;
  }
 
  .nav-menu li {
@@ -115,9 +106,9 @@
 
  .chev {
    display: inline-block;
-   transition: transform .25s ease;
-   font-size: 12px;
-   color: #444;
+
+   font-size: 56;
+   color: #444444a4;
  }
 
  .dropdown-btn.open .chev {
@@ -131,7 +122,7 @@
  }
 
  .nav-right a {
-   color: #121212;
+   color: #303135;
    text-decoration: none;
    font-weight: 500
  }
@@ -141,9 +132,10 @@
    color: #fff;
    border: 0;
    padding: 10px 18px;
-   border-radius: 28px;
-   font-weight: 700;
+   border-radius: 38px;
+   font-weight: 600;
    cursor: pointer;
+
  }
 
  /* PAGE CONTENT (placeholder so the menu sits below navbar) */
@@ -327,9 +319,10 @@
    font-weight: 600;
    color: #000;
    margin-bottom: 32px;
+  ;
  }
 
- .hero-left .highlight {
+ .hero-left  {
    color: #e83446;
  }
 
@@ -353,31 +346,23 @@
    cursor: pointer;
  }
 
- .hero-right {
-   position: relative;
-   width: 480px;
-   height: 480px;
- }
+
 
  .hero-right {
    position: relative;
    width: 450px;
-   /* overall container */
    height: 420px;
-   /* controls vertical space */
+
  }
 
  /* Both images */
  .hero-right img {
    position: absolute;
-   object-fit: cover;
-   box-shadow: 0 8px 25px rgba(0, 0, 0, .16);
  }
 
  /* Front (Girl) */
  .img-front {
    width: 295px;
-   /* larger */
    z-index: 1;
    top: -19px;
    bottom: -4px;
@@ -387,7 +372,7 @@
  /* Back (Man) */
  .img-back {
    width: 300px;
-   /* smaller */
+
    z-index: 1;
    bottom: -10px;
    right: 0;
@@ -591,15 +576,20 @@
  /* Alumni Placement Map Section */
 
  .alumni-map {
-   padding: 100px 0;
-   text-align: center;
-   background-image: url("../Image/map\ \(1\).png");
-   background-size: cover;
-   position: relative;
+  padding: 100px 0;
+  text-align: center;
 
-   min-height: 800px;
-   overflow: hidden;
- }
+  background-image: url("../Image/map.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  position: relative;
+  min-height: 800px;
+  overflow: hidden;
+  background-color: #0f1111; /* dark fallback */
+}
+
 
  .alumni-container {
    position: relative;
