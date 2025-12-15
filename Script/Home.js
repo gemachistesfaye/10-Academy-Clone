@@ -1,176 +1,169 @@
-/* 
-   MEGA MENU — FULL WIDTH — CLICK TO OPEN — MATCHES YOUR SCREENSHOTS
-   
-   */
-
-(function(){
+/* =========================================================
+   MEGA MENU — FULL WIDTH — CLICK TO OPEN
+========================================================= */
+(function () {
   const content = {
     solutions: {
-      title: 'Solutions', 
+      title: "Solutions",
       left: [
-        { heading: 'for Trainees', text: 'Personalized, job-aligned training in AI, data, and career skills', link: '#' },
-        { heading: 'for Universities', text: 'Use our tenx system to deliver job-aligned training with personalized instant grading', link: '#' }
+        {
+          heading: "for Trainees",
+          text: "Personalized, job-aligned training in AI, data, and career skills",
+          link: "#"
+        },
+        {
+          heading: "for Universities",
+          text: "Use our tenx system to deliver job-aligned training with personalized instant grading",
+          link: "#"
+        }
       ],
       right: [
-        { heading: 'for Companies', text: 'Upskill your team in AI, data, careers and no-code tools with contextualized training', link: '#' },
-        { heading: 'for Funders & Ecosystem Leaders', text: 'Fund scalable, proven workforce development solutions with clear ROI', link: '#' }
+        {
+          heading: "for Companies",
+          text: "Upskill your team in AI, data, careers and no-code tools with contextualized training",
+          link: "#"
+        },
+        {
+          heading: "for Funders & Ecosystem Leaders",
+          text: "Fund scalable, proven workforce development solutions with clear ROI",
+          link: "#"
+        }
       ]
     },
 
     trainings: {
-      title: 'Trainings',
+      title: "Trainings",
       left: [
-        { heading: 'Overview', text: '', link: '#' },
-        { heading: 'Intensive Training', text: 'High impact program designed to launch early career professionals into global AI and data careers.', link: '#' },
-        { heading: 'University to Jobs (U2J)', text: 'Bridge the gap between academic education and job market expectations', link: '#' }
+        { heading: "Overview", text: "", link: "#" },
+        {
+          heading: "Intensive Training",
+          text: "High impact program designed to launch early career professionals into global AI and data careers.",
+          link: "#"
+        },
+        {
+          heading: "University to Jobs (U2J)",
+          text: "Bridge the gap between academic education and job market expectations",
+          link: "#"
+        }
       ],
       right: [
-        { heading: 'KAIM', text: 'Designed to build job-ready AI Engineers to power Ethiopia’s FinTech sector', link: '#' },
-        { heading: 'Career Skills Training', text: 'Practical, AI-based course designed to improve digital literacy, communication, and workplace readiness for early professionals.', link: '#' }
+        {
+          heading: "KAIM",
+          text: "Designed to build job-ready AI Engineers to power Ethiopia’s FinTech sector",
+          link: "#"
+        },
+        {
+          heading: "Career Skills Training",
+          text: "Practical, AI-based course designed to improve digital literacy, communication, and workplace readiness for early professionals.",
+          link: "#"
+        }
       ]
     }
   };
 
-  const overlay = document.getElementById('megaOverlay');
-  const card = document.getElementById('megaCard');
-  const titleEl = document.getElementById('megaTitle');
-  const colLeft = document.getElementById('colLeft');
-  const colRight = document.getElementById('colRight');
-  const dropdownBtns = document.querySelectorAll('.dropdown .dropdown-btn');
+  const overlay = document.getElementById("megaOverlay");
+  const card = document.getElementById("megaCard");
+  const titleEl = document.getElementById("megaTitle");
+  const colLeft = document.getElementById("colLeft");
+  const colRight = document.getElementById("colRight");
+  const dropdownBtns = document.querySelectorAll(".dropdown .dropdown-btn");
 
-  function renderMenu(menuKey){
+  function renderMenu(menuKey) {
     const menu = content[menuKey];
     titleEl.textContent = menu.title;
-    colLeft.innerHTML = '';
-    colRight.innerHTML = '';
+    colLeft.innerHTML = "";
+    colRight.innerHTML = "";
 
-    menu.left.forEach(item => {
-      const h = document.createElement('h4');
-      h.textContent = item.heading;
-      colLeft.appendChild(h);
+    function createItem(col, item) {
+      const a = document.createElement("a");
+      a.href = item.link || "#";
+      a.className = "mega-link";
+      a.textContent = item.heading;
+      col.appendChild(a);
 
-      if(item.text){
-        const p = document.createElement('p');
+      if (item.text) {
+        const p = document.createElement("p");
         p.textContent = item.text;
-        colLeft.appendChild(p);
-      } else {
-        const a = document.createElement('a');
-        a.href = item.link || '#';
-        a.className = 'mega-link';
-        a.textContent = item.heading;
-        colLeft.removeChild(h);
-        colLeft.appendChild(a);
+        col.appendChild(p);
       }
-    });
+    }
 
-    menu.right.forEach(item => {
-      const h = document.createElement('h4');
-      h.textContent = item.heading;
-      colRight.appendChild(h);
-
-      if(item.text){
-        const p = document.createElement('p');
-        p.textContent = item.text;
-        colRight.appendChild(p);
-      } else {
-        const a = document.createElement('a');
-        a.href = item.link || '#';
-        a.className = 'mega-link';
-        a.textContent = item.heading;
-        colRight.removeChild(h);
-        colRight.appendChild(a);
-      }
-    });
+    menu.left.forEach(item => createItem(colLeft, item));
+    menu.right.forEach(item => createItem(colRight, item));
   }
 
-  function openMenu(menuKey, btn){
+  function openMenu(menuKey, btn) {
     renderMenu(menuKey);
 
-    overlay.classList.remove('hidden');
-    overlay.setAttribute('aria-hidden', 'false');
-    card.classList.add('open');
+    overlay.classList.remove("hidden");
+    overlay.setAttribute("aria-hidden", "false");
+    card.classList.add("open");
 
-    dropdownBtns.forEach(b=> b.classList.remove('open'));
-    if(btn) btn.classList.add('open');
+    dropdownBtns.forEach(b => b.classList.remove("open"));
+    if (btn) btn.classList.add("open");
 
-    dropdownBtns.forEach(b => b.setAttribute('aria-expanded', 'false'));
-    if(btn) btn.setAttribute('aria-expanded', 'true');
-
-    overlay.dataset.active = menuKey;
+    dropdownBtns.forEach(b => b.setAttribute("aria-expanded", "false"));
+    if (btn) btn.setAttribute("aria-expanded", "true");
   }
 
-  function closeMenu(){
-    card.classList.remove('open');
-    setTimeout(()=>{
-      overlay.classList.add('hidden');
-      overlay.setAttribute('aria-hidden', 'true');
+  function closeMenu() {
+    card.classList.remove("open");
+    setTimeout(() => {
+      overlay.classList.add("hidden");
+      overlay.setAttribute("aria-hidden", "true");
     }, 220);
 
-    dropdownBtns.forEach(b=> b.classList.remove('open'));
-    dropdownBtns.forEach(b => b.setAttribute('aria-expanded', 'false'));
-    overlay.dataset.active = '';
+    dropdownBtns.forEach(b => {
+      b.classList.remove("open");
+      b.setAttribute("aria-expanded", "false");
+    });
   }
 
-  dropdownBtns.forEach(btn=>{
-    const parent = btn.parentElement;
-    const menuKey = parent.getAttribute('data-menu');
+  dropdownBtns.forEach(btn => {
+    const menuKey = btn.parentElement.getAttribute("data-menu");
 
-    btn.addEventListener('click', e=>{
+    btn.addEventListener("click", e => {
       e.stopPropagation();
-      const isOpen = btn.classList.contains('open');
-      if(isOpen){
-        closeMenu();
-      } else {
-        openMenu(menuKey, btn);
-      }
+      btn.classList.contains("open")
+        ? closeMenu()
+        : openMenu(menuKey, btn);
     });
 
-    btn.addEventListener('keydown', ev=>{
-      if(ev.key === 'Enter' || ev.key === ' '){
-        ev.preventDefault();
-        btn.click();
-      } else if(ev.key === 'Escape'){
-        closeMenu();
-        btn.blur();
-      }
+    btn.addEventListener("keydown", e => {
+      if (e.key === "Enter" || e.key === " ") btn.click();
+      if (e.key === "Escape") closeMenu();
     });
   });
 
-  document.addEventListener('click', function(e){
-    const insideCard = card.contains(e.target);
-    const isBtn = Array.from(dropdownBtns).some(b => b.contains(e.target));
-    if(!insideCard && !isBtn){
-      closeMenu();
-    }
+  document.addEventListener("click", e => {
+    if (!card.contains(e.target)) closeMenu();
   });
 
-  document.addEventListener('keydown', function(e){
-    if(e.key === 'Escape') closeMenu();
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape") closeMenu();
   });
 
-  overlay.classList.add('hidden');
-  overlay.setAttribute('aria-hidden', 'true');
-  card.addEventListener('click', e => e.stopPropagation());
+  overlay.classList.add("hidden");
+  overlay.setAttribute("aria-hidden", "true");
+  card.addEventListener("click", e => e.stopPropagation());
 })();
 
+/* =========================================================
+   INFINITE SCROLLING GRID
+========================================================= */
+const grid = document.getElementById("infiniteGrid");
+if (grid) {
+  grid.innerHTML += grid.innerHTML;
+}
 
+/* =========================================================
+   ALUMNI FLOATING CARDS — ROTATE + PAUSE ON HOVER
+========================================================= */
+const alumniCards = document.querySelectorAll(".alumni-card");
+let alumniIndex = 0;
+let alumniPaused = false;
 
-
-/* =========================================================================
-   SCROLLING GRID — INFINITE LOOP — HOVER PAUSE
-   ========================================================================= */
-   const grid = document.getElementById("infiniteGrid");
-
-// Duplicate all images once (for perfect loop)
-grid.innerHTML += grid.innerHTML;
-
-/* =========================================================================
-   ALUMNI FLOATING CARDS
-   ========================================================================= */
-const cards = document.querySelectorAll(".alumni-card");
-let index = 0;
-
-const positions = [
+const alumniPositions = [
   { left: "50%", top: "50%" },
   { left: "25%", top: "40%" },
   { left: "70%", top: "45%" },
@@ -179,30 +172,44 @@ const positions = [
   { left: "80%", top: "60%" }
 ];
 
-function showCard(i) {
-  cards.forEach(card => card.classList.remove("active"));
+function showAlumniCard(index) {
+  alumniCards.forEach(card => card.classList.remove("active"));
 
-  const card = cards[i];
-  const pos = positions[Math.floor(Math.random() * positions.length)];
+  const card = alumniCards[index];
+  const pos =
+    alumniPositions[Math.floor(Math.random() * alumniPositions.length)];
 
   card.style.left = pos.left;
   card.style.top = pos.top;
-
   card.classList.add("active");
 }
 
-if (cards.length > 0) {
-  showCard(index);
+// Pause on hover
+alumniCards.forEach(card => {
+  card.addEventListener("mouseenter", () => {
+    alumniPaused = true;
+  });
+
+  card.addEventListener("mouseleave", () => {
+    alumniPaused = false;
+  });
+});
+
+// Auto rotation
+if (alumniCards.length > 0) {
+  showAlumniCard(alumniIndex);
 
   setInterval(() => {
-    index = (index + 1) % cards.length;
-    showCard(index);
+    if (!alumniPaused) {
+      alumniIndex = (alumniIndex + 1) % alumniCards.length;
+      showAlumniCard(alumniIndex);
+    }
   }, 4000);
 }
 
-/* =========================================================================
+/* =========================================================
    ACCORDION — CLICK TO OPEN/CLOSE
-   ========================================================================= */
+========================================================= */
 const accordionItems = document.querySelectorAll(".accordion-item");
 
 accordionItems.forEach(item => {
@@ -210,17 +217,12 @@ accordionItems.forEach(item => {
   const symbol = item.querySelector(".symbol");
 
   header.addEventListener("click", () => {
-
-    // Close all
     accordionItems.forEach(i => {
       if (i !== item) i.classList.remove("active");
       i.querySelector(".symbol").textContent = "+";
     });
 
-    // Toggle current
     item.classList.toggle("active");
     symbol.textContent = item.classList.contains("active") ? "×" : "+";
   });
 });
-
-
