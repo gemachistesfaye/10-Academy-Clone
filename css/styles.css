@@ -780,7 +780,7 @@ background: rgba(255, 255, 255, 0.02);
   position: relative;
   width: 100%;
   min-height: 800px;
-  background-image: url("../images/map.png");
+  background-image: url("../images/sections/map.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
