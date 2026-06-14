@@ -1,5 +1,5 @@
  :root {
-   --accent: #ef3a45;
+   --accent: #ED1B33;
    --nav-height: 64px;
    --card-radius: 36px;
    --page-width: 1200px;
@@ -13,6 +13,59 @@
    background: #fff;
    overflow-x: hidden
  }
+
+ /* ANNOUNCEMENT BAR */
+ .announcement-bar {
+   position: fixed;
+   top: 0;
+   left: 0;
+   right: 0;
+   background: #171918;
+   color: #fff;
+   text-align: center;
+   padding: 10px 50px 10px 20px;
+   font-size: 14px;
+   font-weight: 500;
+   line-height: 1.5;
+   z-index: 1000;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+ }
+
+ .announcement-close {
+   position: absolute;
+   right: 16px;
+   top: 50%;
+   transform: translateY(-50%);
+   background: none;
+   border: none;
+   color: rgba(255, 255, 255, 0.7);
+   cursor: pointer;
+   padding: 4px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   transition: color 0.2s;
+ }
+
+ .announcement-close:hover {
+   color: #fff;
+ }
+
+ .announcement-bar.hidden {
+   display: none;
+ }
+
+.announcement-content a {
+    color: #ED1B33;
+    text-decoration: underline;
+    font-weight: 600;
+  }
+
+  .announcement-content a:hover {
+    color: #ff4757;
+  }
 
 
 
@@ -44,7 +97,7 @@
 .scroll-top-line {
   width: 100%;
   height: 1px;
-background: rgba(255, 255, 255, 0..02);
+background: rgba(255, 255, 255, 0.02);
   
 }
 
@@ -56,7 +109,7 @@ background: rgba(255, 255, 255, 0..02);
 
  .navbar {
    position: fixed;
-   top: 0;
+   top: 36px;
    left: 0;
    right: 0;
    height: var(--nav-height);
@@ -114,7 +167,7 @@ background: rgba(255, 255, 255, 0..02);
  .chev {
    display: inline-block;
 
-   font-size: 56;
+   font-size: 16px;
    color: #444444a4;
  }
 
@@ -154,6 +207,137 @@ background: rgba(255, 255, 255, 0..02);
 
  }
 
+ /* Hamburger Menu */
+ .hamburger {
+   display: none;
+   flex-direction: column;
+   cursor: pointer;
+   background: none;
+   border: none;
+   padding: 8px;
+   gap: 5px;
+ }
+
+ .hamburger .bar {
+   width: 24px;
+   height: 3px;
+   background: #303135;
+   border-radius: 3px;
+   transition: 0.3s ease;
+ }
+
+ .hamburger.active .bar:nth-child(1) {
+   transform: rotate(45deg) translate(5px, 6px);
+ }
+
+ .hamburger.active .bar:nth-child(2) {
+   opacity: 0;
+ }
+
+ .hamburger.active .bar:nth-child(3) {
+   transform: rotate(-45deg) translate(5px, -6px);
+ }
+
+ @media (max-width: 900px) {
+   .hamburger {
+     display: flex;
+   }
+
+   .nav-menu {
+     position: fixed;
+     top: calc(36px + var(--nav-height));
+     left: 0;
+     right: 0;
+     background: #fff;
+     flex-direction: column;
+     padding: 20px;
+     gap: 16px;
+     border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+     transform: translateY(-100%);
+     opacity: 0;
+     pointer-events: none;
+     transition: transform 0.3s ease, opacity 0.3s ease;
+     z-index: 998;
+   }
+
+   .nav-menu.active {
+     transform: translateY(0);
+     opacity: 1;
+     pointer-events: auto;
+   }
+
+   .nav-right {
+     gap: 12px;
+   }
+
+   .nav-right > a,
+   .nav-right > .contact-btn {
+     display: none;
+   }
+
+   .hero {
+     flex-direction: column;
+     padding: 120px 20px 80px 20px;
+     text-align: center;
+   }
+
+   .hero-left {
+     max-width: 100%;
+   }
+
+   .hero-left h1 {
+     font-size: 32px;
+   }
+
+   .hero-left p {
+     max-width: 100%;
+   }
+
+   .hero-right {
+     width: 100%;
+     max-width: 350px;
+     height: 320px;
+   }
+
+   .approach-container {
+     flex-direction: column;
+   }
+
+   .movement-container {
+     grid-template-columns: 1fr;
+   }
+
+   .ai4e-container {
+     grid-template-columns: 1fr;
+   }
+
+   .product-container {
+     grid-template-columns: 1fr;
+   }
+
+   .footer-container {
+     grid-template-columns: 1fr;
+     gap: 40px;
+     padding: 0 20px;
+   }
+
+   .footer {
+     padding-left: 20px;
+   }
+
+   .footer-bottom {
+     flex-direction: column;
+     gap: 20px;
+     text-align: center;
+     padding-left: 20px;
+   }
+
+   .footer-right {
+     padding-left: 0;
+   }
+ }
+
  /* PAGE CONTENT  */
  main {
    padding-top: calc(var(--nav-height) + 8px);
@@ -163,7 +347,7 @@ background: rgba(255, 255, 255, 0..02);
  /* MEGA MENU OVERLAY  */
 .mega-overlay {
   position: absolute; 
-  top: calc(var(--nav-height));
+  top: calc(36px + var(--nav-height));
   pointer-events: none;  
   width: 100%;
   height: auto;         
@@ -304,7 +488,7 @@ background: rgba(255, 255, 255, 0..02);
    display: flex;
    align-items: center;
    justify-content: space-between;
-   padding: 150px 40px; 
+   padding: 190px 40px 150px 40px; 
    gap: 20px;
    background: #fff;
  }
@@ -324,9 +508,9 @@ background: rgba(255, 255, 255, 0..02);
   ;
  }
 
- .hero-left  {
-   color: #e83446;
- }
+.hero-left  {
+    color: #ED1B33;
+  }
 
  .hero-left p {
    font-size: 18px;
@@ -337,8 +521,8 @@ background: rgba(255, 255, 255, 0..02);
  }
 
  /* Button */
- .cta-btn {
-   background: #e83446;
+.cta-btn {
+    background: #ED1B33;
    color: #fff;
    border: none;
    font-size: 14px;
@@ -391,7 +575,6 @@ background: rgba(255, 255, 255, 0..02);
    left: 20px;
    width: 90%;
    height: 140px;
-   background-image: url("pattern.png");
    background-size: contain;
    background-repeat: no-repeat;
    z-index: 0;
@@ -689,7 +872,7 @@ background: rgba(255, 255, 255, 0..02);
 .alumni-card-content .role {
   font-size: 19px;
   color: #cfd3d0;
-  margin-bottom: 6x;
+   margin-bottom: 6px;
 }
 
 .alumni-batch {
@@ -703,18 +886,21 @@ background: rgba(255, 255, 255, 0..02);
   position: absolute;
   right: 18px;
   bottom: 18px;
-  font-size: 50px;
-  color: #ED1B33;
   opacity: 0;
-  transform: translateY(12px) rotate(-45deg);
+  transform: translateY(12px);
   transition: opacity 0.3s ease, transform 0.3s ease;
   pointer-events: none;
+}
+
+.card-arrow img {
+  width: 24px;
+  height: 24px;
 }
 
 /* Show arrow only on hover */
 .alumni-card:hover .card-arrow {
   opacity: 1;
-  transform: translateY(0) rotate(-45deg);
+  transform: translateY(0);
 }
 
 /*  Responsive  */
@@ -934,8 +1120,6 @@ background: rgba(255, 255, 255, 0..02);
   height: 130%;
   top: -15%;
   left: -15%;
-  background: url("pink-shaes.png") no-repeat center;
-  background-size: contain;
   z-index: -1;
 }
 

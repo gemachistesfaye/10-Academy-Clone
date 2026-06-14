@@ -1,885 +1,520 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>10 Academy</title>
-    <link rel="stylesheet" href="./Style/Home.css" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>10 Academy</title>
+  <meta name="description" content="10 Academy - Training & Development" />
+  <meta name="keywords" content="10 Academy,AI,Africa,Jobs,Training,Partnerships,Custom-training,Government,Universities,Companies,AI4E" />
+  <meta name="theme-color" content="#ED1B33" />
+  <meta property="og:title" content="10 Academy - Preparing African talent for global AI jobs, at workforce scale." />
+  <meta property="og:description" content="10 Academy gets young Africans into AI jobs at workforce scale through custom training programs and partnerships with governments, universities, and companies to power their programs and improve employability." />
+  <meta property="og:url" content="https://10academy.org" />
+  <meta property="og:site_name" content="10 Academy" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="10 Academy - Preparing African talent for global AI jobs, at workforce scale." />
+  <meta name="twitter:description" content="10 Academy gets young Africans into AI jobs at workforce scale through custom training programs and partnerships with governments, universities, and companies to power their programs and improve employability." />
+  <link rel="icon" type="image/x-icon" href="./Image/favicon.ico" />
+  <link rel="icon" type="image/svg+xml" href="./Image/favicon.svg" />
+  <link rel="apple-touch-icon" href="./Image/apple-touch-icon.png" />
+  <link rel="stylesheet" href="./Style/Home.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- Announcement Banner -->
+  <div class="announcement-bar" id="announcementBar">
+    <div class="announcement-content">
+      <span>New: AI-Enabled Full-Stack Developer Training. Applications open June 19, 2026. <a href="javascript:void(0)">Join the waitlist</a> to be notified!</span>
+    </div>
+    <button class="announcement-close" id="announcementClose" aria-label="Dismiss announcement">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" />
+        <path d="M6 18L18 6" stroke="currentColor" stroke-width="2" />
+      </svg>
+    </button>
+  </div>
 
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap"
-      rel="stylesheet" />
-
-  </head>
-
-
-
-
-
-
-  <body>
-    
-
-    <header class="navbar" role="navigation" aria-label="top navigation">
-
-      
-      <div class="container">
-
-
-   
-        
-
-        <div class="nav-left">
-          
-         <div class="logo" >  <img src="./Image/logo.jpeg" alt="logo" />
-         
-
-        
-           </div>
-
-
-
-
-
-
-          <ul class="nav-menu" role="menubar" aria-label="Main"> 
-
-            <li class="dropdown" data-menu="solutions" role="none">
-              <div
-                class="dropdown-btn"
-                role="menuitem"
-                aria-expanded="false"
-                tabindex="0"
-              >
-                Solutions <span class="chev"> ▾ </span>
-              </div>
-            </li>
-
-            <li class="dropdown" data-menu="trainings" role="none">
-              <div
-                class="dropdown-btn"
-                role="menuitem"
-                aria-expanded="false"
-                tabindex="0"
-              >
-                Trainings <span class="chev"> ▾ </span>
-              </div>
-            </li>
-
-
-
-
-            <li>  <a href="#" >Product</a> </li>
-            <li> <a href="#">Impact</a> </li>
-
-           
-          </ul>
+  <!-- Header / Navbar -->
+  <header class="navbar" role="navigation" aria-label="top navigation">
+    <div class="container">
+      <div class="nav-left">
+        <div class="logo">
+          <img src="./Image/logo.jpeg" alt="logo" />
         </div>
+        <ul class="nav-menu" role="menubar" aria-label="Main">
+          <li class="dropdown" data-menu="solutions" role="none">
+            <div class="dropdown-btn" role="menuitem" aria-expanded="false" tabindex="0">
+              Solutions <span class="chev"> ▾ </span>
+            </div>
+          </li>
+          <li class="dropdown" data-menu="trainings" role="none">
+            <div class="dropdown-btn" role="menuitem" aria-expanded="false" tabindex="0">
+              Trainings <span class="chev"> ▾ </span>
+            </div>
+          </li>
+          <li><a href="javascript:void(0)">Product</a></li>
+          <li><a href="javascript:void(0)">Impact</a></li>
+        </ul>
+      </div>
+      <div class="nav-right">
+        <a href="javascript:void(0)">Blog</a>
+        <a href="javascript:void(0)">About us</a>
+        <button class="contact-btn" onclick="void(0)">Contact us →</button>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
 
-
-       
-
-
-        <div class="nav-right">
-          
-          <a href="#">Blog</a>
-          <a href="#">About us</a>
-
-          <button class="contact-btn"> Contact us →</button>
-
-      
-         
+  <!-- Mega Menu Overlay -->
+  <div id="megaOverlay" class="mega-overlay hidden" aria-hidden="true">
+    <div class="spacer"></div>
+    <div id="megaCard" class="mega-card">
+      <div class="mega-inner">
+        <h3 id="megaTitle" class="mega-title"></h3>
+        <div class="mega-grid">
+          <div id="colLeft" class="mega-col"></div>
+          <div id="colRight" class="mega-col"></div>
         </div>
       </div>
+      <div class="mega-bottom-strip"></div>
+    </div>
+  </div>
 
-    </header>
+  <!-- Hero Section -->
+  <div class="page-frame">
+    <section class="hero">
+      <div class="hero-left">
+        <h1>
+          Preparing African talent
+          for global AI jobs, <br>
+          <span>at workforce scale.</span>
+        </h1>
+        <p>
+          10 Academy gets young Africans into AI jobs at workforce scale
+          through custom training programs and partnerships with governments,
+          universities, and companies to power their <br> programs and improve
+          employability.
+        </p>
+        <button class="cta-btn" onclick="document.getElementById('be-part-movement').scrollIntoView({behavior:'smooth'})">Get Started</button>
+      </div>
+      <div class="hero-right">
+        <img class="img-back" src="./Image/hero2.png" alt="" />
+        <img class="img-front" src="./Image/hero1.png" alt="" />
+      </div>
+    </section>
+  </div>
 
+  <!-- Partners Marquee -->
+  <div class="full-line"></div>
+  <div class="page-frame no-frame-border">
+    <section class="partners-section">
+      <div class="partners-wrapper">
+        <div class="partners-track">
+          <img src="./Image/moving/gitlab-foundation.svg" />
+          <img src="./Image/moving/prometheus-x.svg" />
+          <img src="./Image/moving/google.svg" />
+          <img src="./Image/moving/hopper-dean.svg" />
+          <img src="./Image/moving/mastercard-foundation.svg" />
+          <img src="./Image/moving/emergent-ventures.svg" />
+          <img src="./Image/moving/schmidt-futures.svg" />
+          <img src="./Image/moving/wellcome-trust.svg" />
+          <img src="./Image/moving/native-touch.svg" />
+          <img src="./Image/moving/kifiya.svg" />
+          <img src="./Image/moving/metav.svg" />
+          <img src="./Image/moving/tenacious-intelligence.svg" />
+          <img src="./Image/moving/walt-disney.svg" />
+          <img src="./Image/moving/sap.svg" />
+          <img src="./Image/moving/goldman-sachs.svg" />
+          <img src="./Image/moving/flexibus.svg" />
+          <!-- duplicate for infinite scroll -->
+          <img src="./Image/moving/gitlab-foundation.svg" />
+          <img src="./Image/moving/prometheus-x.svg" />
+          <img src="./Image/moving/google.svg" />
+          <img src="./Image/moving/hopper-dean.svg" />
+          <img src="./Image/moving/mastercard-foundation.svg" />
+          <img src="./Image/moving/emergent-ventures.svg" />
+          <img src="./Image/moving/schmidt-futures.svg" />
+          <img src="./Image/moving/wellcome-trust.svg" />
+          <img src="./Image/moving/native-touch.svg" />
+          <img src="./Image/moving/kifiya.svg" />
+          <img src="./Image/moving/metav.svg" />
+          <img src="./Image/moving/tenacious-intelligence.svg" />
+          <img src="./Image/moving/walt-disney.svg" />
+          <img src="./Image/moving/sap.svg" />
+          <img src="./Image/moving/goldman-sachs.svg" />
+          <img src="./Image/moving/flexibus.svg" />
+        </div>
+      </div>
+    </section>
+  </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-     <!-- MEGA MENU OVERLAY + CARD  -->
-
-    <div id="megaOverlay" class="mega-overlay hidden" aria-hidden="true">
-      <!-- small spacer to avoid accidental close -->
-      <div class="spacer"></div>
-
-      <div id="megaCard" class="mega-card">
-        <div class="mega-inner">
-          <!-- Title -->
-          <h3 id="megaTitle" class="mega-title"></h3>
-
-          <!-- GRID LAYOUT -->
-          <div class="mega-grid">
-            <div id="colLeft" class="mega-col"></div>
-
-            <div id="colRight" class="mega-col"></div>
+  <!-- Stats & Impact Section -->
+  <div class="background">
+    <div class="page-frame dark">
+      <section class="stats">
+        <div class="stats-grid">
+          <div class="stat">
+            <div class="stat-number">95%</div>
+            <div class="stat-text">of graduates secure a global level job within 12 months</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">$450M+</div>
+            <div class="stat-text">in total lifetime earnings generated by graduates</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">5X</div>
+            <div class="stat-text">salary growth within 3 years</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">37.5%</div>
+            <div class="stat-text">of our graduates are women</div>
           </div>
         </div>
-
-        <!-- black rounded strip -->
-        <div class="mega-bottom-strip"></div>
-      </div>
-    </div>
-
-
-
-
-
-
-
-
-
-    <div class="page-frame">
-
-      
-      <section class="hero">
-
-        <div class="hero-left">
-          
-          <h1>
-            Preparing African talent 
-            for global AI jobs, <br>
-            <span> at workforce scale.</span>
-          </h1>
-          
-          
-
-          <p>
-            10 Academy gets young Africans into AI jobs at workforce scale
-            through custom training programs and partnerships with governments,
-            universities, and companies to power their <br> programs and improve
-            employability.
-          </p>
-
-          <button class="cta-btn">Get Started</button>
-        </div>
-
-
-        
-
-        <div class="hero-right">
-
-         
-
-          <img class="img-back" src="../Image/hero2.png" alt="" />
-          <img class="img-front" src="../Image/hero1.png" alt="" />
-        </div>
-
-        
       </section>
 
+      <div class="scroll-top-line"></div>
 
+      <section class="impact" id="impact">
+        <div class="impact-header">
+          <h2>Impact You Can See</h2>
+          <p>We don't just train, we get people hired.</p>
+          <p>From remote engineers to local fintech talent, our learners are powering Africa's future.</p>
+          <a href="https://drive.google.com/file/d/1EVL_Gfg-U3mk_mPdXLZZiStt8rI7uMxj/view" class="impact-report" target="_blank">See the Impact Report <img src="./Image/frame.svg" alt="" /></a>
+        </div>
+        <div class="scroll-top-line"></div>
+        <div class="infinite-scroll-container">
+          <div class="infinite-grid" id="infiniteGrid">
+            <div class="item"><img src="./Image/verticaly/1.png" /></div>
+            <div class="item"><img src="./Image/verticaly/2.png" /></div>
+            <div class="item"><img src="./Image/verticaly/3.png" /></div>
+            <div class="item"><img src="./Image/verticaly/4.png" /></div>
+            <div class="item"><img src="./Image/verticaly/5.png" /></div>
+            <div class="item"><img src="./Image/verticaly/6.png" /></div>
+            <div class="item"><img src="./Image/verticaly/7.png" /></div>
+            <div class="item"><img src="./Image/verticaly/8.png" /></div>
+            <div class="item"><img src="./Image/verticaly/9.png" /></div>
+            <div class="item"><img src="./Image/verticaly/10.png" /></div>
+            <div class="item"><img src="./Image/verticaly/11.png" /></div>
+            <div class="item"><img src="./Image/verticaly/12.png" /></div>
+            <div class="item"><img src="./Image/verticaly/13.png" /></div>
+            <div class="item"><img src="./Image/verticaly/14.png" /></div>
+            <div class="item"><img src="./Image/verticaly/15.png" /></div>
+            <div class="item"><img src="./Image/verticaly/16.png" /></div>
+            <div class="item"><img src="./Image/verticaly/17.png" /></div>
+            <div class="item"><img src="./Image/verticaly/18.png" /></div>
+            <div class="item"><img src="./Image/verticaly/19.png" /></div>
+            <div class="item"><img src="./Image/verticaly/20.png" /></div>
+            <div class="item"><img src="./Image/verticaly/21.png" /></div>
+            <div class="item"><img src="./Image/verticaly/22.png" /></div>
+            <div class="item"><img src="./Image/verticaly/23.png" /></div>
+            <div class="item"><img src="./Image/verticaly/24.png" /></div>
+            <div class="item"><img src="./Image/verticaly/25.png" /></div>
+            <div class="item"><img src="./Image/verticaly/26.png" /></div>
+            <div class="item"><img src="./Image/verticaly/27.png" /></div>
+            <div class="item"><img src="./Image/verticaly/28.png" /></div>
+            <div class="item"><img src="./Image/verticaly/29.png" /></div>
+            <div class="item"><img src="./Image/verticaly/30.png" /></div>
+            <div class="item"><img src="./Image/verticaly/31.png" /></div>
+            <div class="item"><img src="./Image/verticaly/32.png" /></div>
+            <div class="item"><img src="./Image/verticaly/33.png" /></div>
+            <div class="item"><img src="./Image/verticaly/34.png" /></div>
+            <div class="item"><img src="./Image/verticaly/35.png" /></div>
+          </div>
+        </div>
+      </section>
     </div>
+  </div>
 
+  <div class="scroll-top-line"></div>
 
+  <!-- Alumni Placement Map Section -->
+  <section class="alumni-map" id="alumni">
+    <h2>Alumni Placement Map</h2>
+    <div class="alumni-container">
+      <a href="https://linkedin.com/in/azaria-tamrat" class="alumni-card" target="_blank">
+        <div class="alumni-top">
+          <img class="alumni-person" src="./Image/alumini-batch/AzariaTamerat8.png" alt="Azaria Tamrat" />
+          <img class="alumni-company" src="./Image/alumini-batch/diseny8.svg" alt="Disney" />
+        </div>
+        <div class="alumni-card-content">
+          <h3>Azaria Tamrat</h3>
+          <p class="role">Software Engineer II</p>
+          <p class="alumni-batch">Batch 4</p>
+        </div>
+        <span class="card-arrow"><img src="./Image/linkedin-icon.svg" alt="LinkedIn" /></span>
+      </a>
+      <a href="https://linkedin.com/in/iyanuloluwa-osuolale" class="alumni-card" target="_blank">
+        <div class="alumni-top">
+          <img class="alumni-person" src="./Image/alumini-batch/IyanuloluwaOsuolale7.png" alt="Iyanuloluwa Osuolale" />
+          <img class="alumni-company" src="./Image/alumini-batch/KPMG.svg" alt="KPMG" />
+        </div>
+        <div class="alumni-card-content">
+          <h3>Iyanuloluwa Osuolale</h3>
+          <p class="role">Technology Consultant</p>
+          <p class="alumni-batch">Batch 3</p>
+        </div>
+        <span class="card-arrow"><img src="./Image/linkedin-icon.svg" alt="LinkedIn" /></span>
+      </a>
+      <a href="https://linkedin.com/in/kavin-karobia" class="alumni-card" target="_blank">
+        <div class="alumni-top">
+          <img class="alumni-person" src="./Image/alumini-batch/KavinKarobia5.png" alt="Kavin Karobia" />
+          <img class="alumni-company" src="./Image/alumini-batch/datatonic5.svg" alt="Datatonic" />
+        </div>
+        <div class="alumni-card-content">
+          <h3>Kavin Karobia</h3>
+          <p class="role">ML Engineer</p>
+          <p class="alumni-batch">Batch 5</p>
+        </div>
+        <span class="card-arrow"><img src="./Image/linkedin-icon.svg" alt="LinkedIn" /></span>
+      </a>
+      <a href="https://linkedin.com/in/biniyam-mengist" class="alumni-card" target="_blank">
+        <div class="alumni-top">
+          <img class="alumni-person" src="./Image/alumini-batch/BiniyamMengist4.png" alt="Biniyam Mengist" />
+          <img class="alumni-company" src="./Image/alumini-batch/meta4.svg" alt="Meta" />
+        </div>
+        <div class="alumni-card-content">
+          <h3>Biniyam Mengist</h3>
+          <p class="role">AI Research Analyst</p>
+          <p class="alumni-batch">Batch 6</p>
+        </div>
+        <span class="card-arrow"><img src="./Image/linkedin-icon.svg" alt="LinkedIn" /></span>
+      </a>
+      <a href="https://linkedin.com/in/michael-darko-ahwireng" class="alumni-card" target="_blank">
+        <div class="alumni-top">
+          <img class="alumni-person" src="./Image/alumini-batch/MichaelDarkoAhwireng6.png" alt="Michael Darko Ahwireng" />
+          <img class="alumni-company" src="./Image/alumini-batch/giz6.svg" alt="GIZ" />
+        </div>
+        <div class="alumni-card-content">
+          <h3>Michael Darko Ahwireng</h3>
+          <p class="role">Product Manager, AI</p>
+          <p class="alumni-batch">Batch 3</p>
+        </div>
+        <span class="card-arrow"><img src="./Image/linkedin-icon.svg" alt="LinkedIn" /></span>
+      </a>
+      <a href="https://linkedin.com/in/david-mukuzi" class="alumni-card" target="_blank">
+        <div class="alumni-top">
+          <img class="alumni-person" src="./Image/alumini-batch/DavidMukuzi1.png" alt="David Mukuzi" />
+          <img class="alumni-company" src="./Image/alumini-batch/aws1.svg" alt="AWS" />
+        </div>
+        <div class="alumni-card-content">
+          <h3>David Mukuzi</h3>
+          <p class="role">DevOps Engineer</p>
+          <p class="alumni-batch">Batch 4</p>
+        </div>
+        <span class="card-arrow"><img src="./Image/linkedin-icon.svg" alt="LinkedIn" /></span>
+      </a>
+    </div>
+  </section>
 
+  <!-- Approach & Movement Section -->
+  <div class="page-frame">
+    <section class="approach" id="approach">
+      <div class="approach-container">
+        <div class="approach-image">
+          <img src="./Image/Approach.png" alt="Our approach" />
+        </div>
+        <div class="approach-content">
+          <h2>Our Approach</h2>
+          <p class="approach-text">
+            We help individuals gain in-demand skills and help institutions
+            scale training through our AI-enabled system, content, and support.
+          </p>
+          <div class="approach-grid">
+            <div class="approach-item">
+              <h3>
+                <span class="icon-title"><img src="./Image/computer-line.svg" /> System –</span>
+                <span class="description">tenx, our scalable platform, delivers personalized learning at scale with real-time insights on learner progress and outcomes.</span>
+              </h3>
+            </div>
+            <div class="approach-item">
+              <h3>
+                <span class="icon-title"><img src="./Image/file-list-3-line.svg" /> Content –</span>
+                <span class="description">Hands-on, industry-aligned training in AI, data, and core career skills mapped directly to job market needs across Africa.</span>
+              </h3>
+            </div>
+            <div class="approach-item">
+              <h3>
+                <span class="icon-title"><img src="./Image/chat-3-line.svg" /> Support –</span>
+                <span class="description">End-to-end guidance from onboarding to job search, including tutor support, community engagement, and AI-powered job matching.</span>
+              </h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-
-
-
-
-
-
-    <!-- Horizontal Line Above -->
     <div class="full-line"></div>
 
-    <!-- Remove vertical borders only here -->
-    <div class="page-frame no-frame-border">
-      <section class="partners-section">
-        <div class="partners-wrapper">
-          <div class="partners-track">
-            <!-- logos -->
-            <img src="../Image/moving/emergent-ventures.svg" />
-            <img src="../Image/moving/flexibus.svg" />
-            <img src="../Image/moving/gitlab-foundation.svg" />
-            <img src="../Image/moving/goldman-sachs.svg" />
-            <img src="../Image/moving/google.svg" />
-            <img src="../Image/moving/hopper-dean.svg" />
-            <img src="../Image/moving/kifiya.svg" />
-            <img src="../Image/moving/mastercard-foundation.svg" />
-            <img src="../Image/moving/metav.svg" />
-            <img src="../Image/moving/native-touch.svg" />
-            <img src="../Image/moving/prometheus-x.svg" />
-            <img src="../Image/moving/sap.svg" />
-            <img src="../Image/moving/schmidt-futures.svg" />
-            <img src="../Image/moving/tenacious-intelligence.svg" />
-            <img src="../Image/moving/walt-disney.svg" />
-            <img src="../Image/moving/wellcome-trust.svg" />
-
-            <!-- duplicate for infinite scroll -->
-            <img src="../Image/moving/emergent-ventures.svg" />
-            <img src="../Image/moving/flexibus.svg" />
-            <img src="../Image/moving/gitlab-foundation.svg" />
-            <img src="../Image/moving/goldman-sachs.svg" />
-            <img src="../Image/moving/google.svg" />
-            <img src="../Image/moving/hopper-dean.svg" />
-            <img src="../Image/moving/kifiya.svg" />
-            <img src="../Image/moving/mastercard-foundation.svg" />
-            <img src="../Image/moving/metav.svg" />
-            <img src="../Image/moving/native-touch.svg" />
-            <img src="../Image/moving/prometheus-x.svg" />
-            <img src="../Image/moving/sap.svg" />
-            <img src="../Image/moving/schmidt-futures.svg" />
-            <img src="../Image/moving/tenacious-intelligence.svg" />
-            <img src="../Image/moving/walt-disney.svg" />
-            <img src="../Image/moving/wellcome-trust.svg" />
+    <section class="movement-section" id="be-part-movement">
+      <div class="movement-container">
+        <div class="movement-left">
+          <h2>Be Part of the Movement</h2>
+          <p class="subtitle">We work with learners and organizations across Africa to close the career-readiness gap and build the future of work.</p>
+          <div class="accordion-item active">
+            <div class="accordion-header">
+              <h3>Trainees</h3>
+              <span class="symbol">×</span>
+            </div>
+            <div class="accordion-body">
+              <p>Gain AI and career skills to compete globally and secure a job without leaving home.</p>
+              <a href="javascript:void(0)" class="btn">Explore</a>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <h3>Universities</h3>
+              <span class="symbol">+</span>
+            </div>
+            <div class="accordion-body">
+              <p>Partner with us to upskill students and integrate AI-driven learning systems.</p>
+              <a href="javascript:void(0)" class="btn">Explore</a>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <h3>Companies</h3>
+              <span class="symbol">+</span>
+            </div>
+            <div class="accordion-body">
+              <p>Hire trained talent or collaborate on AI career-readiness programs.</p>
+              <a href="javascript:void(0)" class="btn">Explore</a>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <h3>Funders & Ecosystem Leaders</h3>
+              <span class="symbol">+</span>
+            </div>
+            <div class="accordion-body">
+              <p>Support AI-driven education and innovation for Africa's next generation.</p>
+              <a href="javascript:void(0)" class="btn">Explore</a>
+            </div>
           </div>
         </div>
-      </section>
-    </div>
-
-    .
-    <!-- Black Background Wrapper -->
-    <div class="background">
-      <div class="page-frame dark">
-        <!-- Stats Section -->
-        <section class="stats">
-          <div class="stats-grid">
-            <div class="stat">
-              <div class="stat-number">95%</div>
-              <div class="stat-text">
-                of graduates secure a global level job within 12 months
-              </div>
-            </div>
-
-            <div class="stat">
-              <div class="stat-number">$450M+</div>
-              <div class="stat-text">
-                in total lifetime earnings generated by graduates
-              </div>
-            </div>
-
-            <div class="stat">
-              <div class="stat-number">5X</div>
-              <div class="stat-text">salary growth within 3 years</div>
-            </div>
-
-            <div class="stat">
-              <div class="stat-number">37.5%</div>
-              <div class="stat-text">of our graduates are women</div>
-            </div>
+        <div class="movement-right">
+          <div class="image-wrapper">
+            <img src="./Image/PartoftheMovment.png" alt="" />
+            <div class="pink-shapes"></div>
           </div>
-        </section>
-
-        <div class="scroll-top-line"></div>
-
-        <!-- Impact Section -->
-        <section class="impact" id="impact">
-          <div class="impact-header">
-            <h2>Impact You Can See</h2>
-            <p>We don't just train, we get people hired.</p>
-            <p>
-              From remote engineers to local fintech talent, our learners are
-              powering Africa's future.
-            </p>
-            <a href="#report" class="impact-report">See the Impact Report →</a>
-          </div>
-
-          <!-- Horizontal line above scroll -->
-          <div class="scroll-top-line"></div>
-
-          <div class="infinite-scroll-container">
-            <div class="infinite-grid" id="infiniteGrid">
-              <!-- Your 35 images -->
-              <div class="item"><img src="./Image/verticaly/1.png" /></div>
-              <div class="item"><img src="./Image/verticaly/2.png" /></div>
-              <div class="item"><img src="./Image/verticaly/3.png" /></div>
-              <div class="item"><img src="./Image/verticaly/4.png" /></div>
-              <div class="item"><img src="./Image/verticaly/5.png" /></div>
-              <div class="item"><img src="./Image/verticaly/6.png" /></div>
-              <div class="item"><img src="./Image/verticaly/7.png" /></div>
-
-              <div class="item"><img src="./Image/verticaly/8.png" /></div>
-              <div class="item"><img src="./Image/verticaly/9.png" /></div>
-              <div class="item"><img src="./Image/verticaly/10.png" /></div>
-              <div class="item"><img src="./Image/verticaly/11.png" /></div>
-              <div class="item"><img src="./Image/verticaly/12.png" /></div>
-              <div class="item"><img src="./Image/verticaly/13.png" /></div>
-              <div class="item"><img src="./Image/verticaly/14.png" /></div>
-
-              <div class="item"><img src="./Image/verticaly/15.png" /></div>
-              <div class="item"><img src="./Image/verticaly/16.png" /></div>
-              <div class="item"><img src="./Image/verticaly/17.png" /></div>
-              <div class="item"><img src="./Image/verticaly/18.png" /></div>
-              <div class="item"><img src="./Image/verticaly/19.png" /></div>
-              <div class="item"><img src="./Image/verticaly/20.png" /></div>
-              <div class="item"><img src="./Image/verticaly/21.png" /></div>
-
-              <div class="item"><img src="./Image/verticaly/22.png" /></div>
-              <div class="item"><img src="./Image/verticaly/23.png" /></div>
-              <div class="item"><img src="./Image/verticaly/24.png" /></div>
-              <div class="item"><img src="./Image/verticaly/25.png" /></div>
-              <div class="item"><img src="./Image/verticaly/26.png" /></div>
-              <div class="item"><img src="./Image/verticaly/27.png" /></div>
-              <div class="item"><img src="./Image/verticaly/28.png" /></div>
-
-              <div class="item"><img src="./Image/verticaly/29.png" /></div>
-              <div class="item"><img src="./Image/verticaly/30.png" /></div>
-              <div class="item"><img src="./Image/verticaly/31.png" /></div>
-              <div class="item"><img src="./Image/verticaly/32.png" /></div>
-              <div class="item"><img src="./Image/verticaly/33.png" /></div>
-              <div class="item"><img src="./Image/verticaly/34.png" /></div>
-              <div class="item"><img src="./Image/verticaly/35.png" /></div>
-            </div>
-          </div>
-        </section>
-      </div>
-    </div>
-
-    <div class="scroll-top-line"></div>
-
-    <!-- Alumni Placement Map Section -->
-    <section class="alumni-map" id="alumni">
-      <h2>Alumni Placement Map</h2>
-
-      <div class="alumni-container">
-       
-        <!-- 1 -->
-<a
-  href="https://linkedin.com/in/iyanuloluwa-osuolale"
-  class="alumni-card active"
-  target="_blank"
->
-  <div class="alumni-top">
-    <img class="alumni-person" src="./Image/alumini-batch/IyanuloluwaOsuolale7.png" alt="Iyanuloluwa Osuolale" />
-    <img class="alumni-company" src="./Image/alumini-batch/KPMG.svg" alt="KPMG" />
-  </div>
-
-  <div class="alumni-card-content">
-    <h3>Iyanuloluwa Osuolale</h3>
-    <p class="role">Technology Consultant</p>
-    <p class="alumni-batch">Batch 3</p>
-  </div>
-
-  <span class="card-arrow">→</span>
-</a>
-
-<!-- 2 -->
-<a
-  href="https://linkedin.com/in/kavin-karobia"
-  class="alumni-card"
-  target="_blank"
->
-  <div class="alumni-top">
-    <img class="alumni-person" src="./Image/alumini-batch/KavinKarobia5.png" alt="Kavin Karobia" />
-    <img class="alumni-company" src="./Image/alumini-batch/datatonic5.svg" alt="Datatonic" />
-  </div>
-
-  <div class="alumni-card-content">
-    <h3>Kavin Karobia</h3>
-    <p class="role">ML Engineer</p>
-    <p class="alumni-batch">Batch 5</p>
-  </div>
-
-  <span class="card-arrow">→</span>
-</a>
-
-<!-- 3 -->
-<a
-  href="https://linkedin.com/in/biniyam-mengist"
-  class="alumni-card"
-  target="_blank"
->
-  <div class="alumni-top">
-    <img class="alumni-person" src="./Image/alumini-batch/BiniyamMengist4.png" alt="Biniyam Mengist" />
-    <img class="alumni-company" src="./Image/alumini-batch/meta4.svg" alt="Meta" />
-  </div>
-
-  <div class="alumni-card-content">
-    <h3>Biniyam Mengist</h3>
-    <p class="role">AI Research Analyst</p>
-    <p class="alumni-batch">Batch 6</p>
-  </div>
-
-  <span class="card-arrow">→</span>
-</a>
-
-<!-- 4 -->
-<a
-  href="https://linkedin.com/in/azaria-tamrat"
-  class="alumni-card"
-  target="_blank"
->
-  <div class="alumni-top">
-    <img class="alumni-person" src="./Image/alumini-batch/AzariaTamerat8.png" alt="Azaria Tamrat" />
-    <img class="alumni-company" src="./Image/alumini-batch/diseny8.svg" alt="Disney" />
-  </div>
-
-  <div class="alumni-card-content">
-    <h3>Azaria Tamrat</h3>
-    <p class="role">Data Engineer</p>
-    <p class="alumni-batch">Batch 5</p>
-  </div>
-
-  <span class="card-arrow">→</span>
-</a>
-
-<!-- 5 -->
-<a
-  href="https://linkedin.com/in/michael-darko-ahwireng"
-  class="alumni-card"
-  target="_blank"
->
-  <div class="alumni-top">
-    <img class="alumni-person" src="./Image/alumini-batch/MichaelDarkoAhwireng6.png" alt="Michael Darko Ahwireng" />
-    <img class="alumni-company" src="./Image/alumini-batch/giz6.svg" alt="GIZ" />
-  </div>
-
-  <div class="alumni-card-content">
-    <h3>Michael Darko Ahwireng</h3>
-    <p class="role">Product Manager, AI</p>
-    <p class="alumni-batch">Batch 3</p>
-  </div>
-
-  <span class="card-arrow">→</span>
-</a>
-
-<!-- 6 -->
-<a
-  href="https://linkedin.com/in/david-mukuzi"
-  class="alumni-card"
-  target="_blank"
->
-  <div class="alumni-top">
-    <img class="alumni-person" src="./Image/alumini-batch/DavidMukuzi1.png" alt="David Mukuzi" />
-    <img class="alumni-company" src="./Image/alumini-batch/aws1.svg" alt="AWS" />
-  </div>
-
-  <div class="alumni-card-content">
-    <h3>David Mukuzi</h3>
-    <p class="role">DevOps Engineer</p>
-    <p class="alumni-batch">Batch 4</p>
-  </div>
-
-  <span class="card-arrow">→</span>
-</a>
-
+        </div>
       </div>
     </section>
+  </div>
 
-    <div class="page-frame">
-      <!-- Approach Section -->
-      <section class="approach" id="approach">
-        <div class="approach-container">
-          <!-- Left Image -->
-          <div class="approach-image">
-            <img src="../Image/Approach.png" alt="Our approach" />
-          </div>
-
-          <!-- Right Content -->
-          <div class="approach-content">
-            <h2>Our Approach</h2>
-
-            <p class="approach-text">
-              We help individuals gain in-demand skills and help institutions
-              scale training through our AI-enabled system, content, and
-              support.
-            </p>
-
-            <div class="approach-grid">
-              <!-- System -->
-              <div class="approach-item">
-                <h3>
-                  <span class="icon-title">
-                    <img src="../Image/computer-line.svg" /> System –
-                  </span>
-                  <span class="description">
-                    tenx, our scalable platform, delivers personalized learning
-                    at scale with real-time insights on learner progress and
-                    outcomes.
-                  </span>
-                </h3>
-              </div>
-
-              <!-- Content -->
-              <div class="approach-item">
-                <h3>
-                  <span class="icon-title">
-                    <img src="../Image/file-list-3-line.svg" /> Content –
-                  </span>
-                  <span class="description">
-                    Hands-on, industry-aligned training in AI, data, and core
-                    career skills mapped directly to job market needs across
-                    Africa.
-                  </span>
-                </h3>
-              </div>
-
-              <!-- Support -->
-              <div class="approach-item">
-                <h3>
-                  <span class="icon-title">
-                    <img src="../Image/chat-3-line.svg" /> Support –
-                  </span>
-                  <span class="description">
-                    End-to-end guidance from onboarding to job search, including
-                    tutor support, community engagement, and AI-powered job
-                    matching.
-                  </span>
-                </h3>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div class="full-line"></div>
-
-      <section class="movement-section">
-        <div class="movement-container">
-          <!-- LEFT COLUMN -->
-          <div class="movement-left">
-            <h2>Be Part of the Movement</h2>
-            <p class="subtitle">
-              We work with learners and organizations across Africa to close the
-              career-readiness gap and build the future of work.
-            </p>
-
-            <!-- ACCORDION 1 (OPEN BY DEFAULT) -->
-            <div class="accordion-item active">
-              <div class="accordion-header">
-                <h3>Trainees</h3>
-                <span class="symbol">×</span>
-              </div>
-
-              <div class="accordion-body">
-                <p>
-                  Gain AI and career skills to compete globally and secure a job
-                  without leaving home.
-                </p>
-                <a href="trainees.html" class="btn">Explore</a>
-              </div>
-            </div>
-
-            <!-- ACCORDION 2 -->
-            <div class="accordion-item">
-              <div class="accordion-header">
-                <h3>Universities</h3>
-                <span class="symbol">+</span>
-              </div>
-
-              <div class="accordion-body">
-                <p>
-                  Partner with us to upskill students and integrate AI-driven
-                  learning systems.
-                </p>
-                <a href="universities.html" class="btn">Explore</a>
-              </div>
-            </div>
-
-            <!-- ACCORDION 3 -->
-            <div class="accordion-item">
-              <div class="accordion-header">
-                <h3>Companies</h3>
-                <span class="symbol">+</span>
-              </div>
-
-              <div class="accordion-body">
-                <p>
-                  Hire trained talent or collaborate on AI career-readiness
-                  programs.
-                </p>
-                <a href="companies.html" class="btn">Explore</a>
-              </div>
-            </div>
-
-            <!-- ACCORDION 4 -->
-            <div class="accordion-item">
-              <div class="accordion-header">
-                <h3>Funders & Ecosystem Leaders</h3>
-                <span class="symbol">+</span>
-              </div>
-
-              <div class="accordion-body">
-                <p>
-                  Support AI-driven education and innovation for Africa’s next
-                  generation.
-                </p>
-                <a href="funders.html" class="btn">Explore</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- RIGHT SIDE -->
-          <div class="movement-right">
-            <div class="image-wrapper">
-              <img src="../Image/PartoftheMovment.png" alt="" />
-              <div class="pink-shapes"></div>
-            </div>
-          </div>
-        </div>
-      </section>
+  <!-- AI4E Section -->
+  <section class="ai4e" id="ai4e">
+    <div class="ai4e-container">
+      <div class="ai4e-left">
+        <span class="ai4e-badge">AI4E – AI for Employment</span>
+        <h2>Creating an AI-ready youth workforce using an AI-enabled platform</h2>
+        <p>
+          AI4E prepares 1M+ African learners for AI-ready <br />
+          careers at scale through the tenx platform by <br />
+          identifying talent gaps, delivering personalized, <br />
+          market-aligned training, and providing contextualized <br />
+          learning for university students, early career <br />
+          professionals, and disadvantaged youth including <br />
+          those in rural areas and outside formal education to <br />
+          build AI literacy and career readiness for meaningful <br />
+          employment.
+        </p>
+      </div>
+      <div class="ai4e-right">
+        <ul class="ai4e-features">
+          <li>Economic Impact: $360M in projected <br />lifetime earnings across 1M learners</li>
+          <li>Unit Cost: &lt;$30 per learner for AI-driven <br />training and placement support</li>
+          <li>Platform Capacity: Scalable to 100K+ users in <br />parallel</li>
+        </ul>
+        <p class="ai4e-note">No cost to join. Institutions can participate by signing a non-binding expression of interest.</p>
+        <button class="cta-button" onclick="void(0)">Join Us</button>
+      </div>
     </div>
+  </section>
 
-    
-
-    <!-- AI4E Section -->
-    <section class="ai4e" id="ai4e">
-      <div class="ai4e-container">
-        <!-- LEFT TEXT -->
-        <div class="ai4e-left">
-          <span class="ai4e-badge">AI4E – AI for Employment</span>
-
-          <h2>
-            Creating an AI-ready youth workforce using an AI-enabled platform
-          </h2>
-
-          <p>
-            AI4E prepares 1M+ African learners for AI-ready <br />
-            careers at scale through the tenx platform by <br />
-            identifying talent gaps, delivering personalized, <br />
-            market-aligned training, and providing contextualized <br />
-            learning for university students, early career <br />
-            professionals, and disadvantaged youth including <br />
-            those in rural areas and outside formal education to <br />
-            build AI literacy and career readiness for meaningful <br />
-            employment.
-          </p>
-        </div>
-
-        <!-- RIGHT SIDE -->
-        <div class="ai4e-right">
-          <ul class="ai4e-features">
-            <li>
-              Economic Impact: $360M in projected <br />
-              lifetime earnings across 1M learners
-            </li>
-            <li>
-              Unit Cost: &lt;$30 per learner for AI-driven <br />
-              training and placement support
-            </li>
-            <li>
-              Platform Capacity: Scalable to 100K+ users in <br />
-              parallel
-            </li>
+  <!-- Product & Blog Section -->
+  <div class="page-frame">
+    <section class="product-section" id="product">
+      <div class="product-container">
+        <div class="product-content">
+          <h2>Train at Scale.<br />Track What Matters.</h2>
+          <p>Our tools go beyond content. We help you deliver real, measurable outcomes.</p>
+          <ul class="product-features">
+            <li>Train thousands at once with our AI-powered platform</li>
+            <li>Monitor employment outcomes, skill growth, and engagement</li>
+            <li>Customize for your learners, market, or mission</li>
           </ul>
-
-          <p class="ai4e-note">
-            No cost to join. Institutions can participate by signing a
-            non-binding expression of interest.
-          </p>
-
-          <button class="cta-button">Join Us</button>
+          <a href="javascript:void(0)" class="product-link">Explore tenx <img src="./Image/frame.svg" alt="" /></a>
+        </div>
+        <div class="product-image">
+          <img src="./Image/tenx.png" alt="tenx platform graph" />
         </div>
       </div>
     </section>
 
-    <div class="page-frame">
-      <!-- Product Section -->
-      <section class="product-section" id="product">
-        <div class="product-container">
-          <div class="product-content">
-            <h2>Train at Scale.<br />Track What Matters.</h2>
+    <div class="full-line"></div>
 
-            <p>
-              Our tools go beyond content. We help you deliver real, measurable
-              outcomes.
-            </p>
+    <section class="blog-section">
+      <div class="blog-header">
+        <h2>From Our Blog</h2>
+        <p>Explore insights on the evolving workplace, skills enhancement, and the tangible effects on our communities.</p>
+        <a href="javascript:void(0)" class="blog-explore">Explore Blog <img src="./Image/frame.svg" alt="" /></a>
+      </div>
+    </section>
+  </div>
 
-            <ul class="product-features">
-              <li>Train thousands at once with our AI-powered platform</li>
-              <li>Monitor employment outcomes, skill growth, and engagement</li>
-              <li>Customize for your learners, market, or mission</li>
-            </ul>
-
-            <a href="#" class="product-link">Explore tenx ›</a>
-          </div>
-
-          <div class="product-image">
-            <img src="../Image/tenx.png" alt="tenx platform graph" />
-          </div>
-        </div>
-      </section>
-
-      <!-- Blog Section -->
-
-      <div class="full-line"></div>
-
-      <section class="blog-section">
-        <div class="blog-header">
-          <h2>From Our Blog</h2>
-          <p>
-            Explore insights on the evolving workplace, skills <br />
-            enhancement, and the tangible effects on our <br />
-            communities.
-          </p>
-          <a href="blog.html" class="blog-explore">
-            Explore Blog <span> > </span>
-          </a>
-        </div>
-
-        <div class="blog-line"></div>
-
-        <div class="blog-grid">
-          <!-- CARD 1 -->
-          <div class="blog-card">
-            <a href="post1.html">
-              <img
-                src="../Image/photo_5814281749440170766_w_67f86b3090.jpg"
-                alt="Blog 1"
-                class="blog-img"
-              />
-            </a>
-
-            <a href="category-ai-meetup.html" class="blog-tag">AI Meetup</a>
-
-            <a href="post1.html" class="blog-title-link">
-              <h3>Will AI Deepen Inequality or Help Bridge the Gap?</h3>
-            </a>
-
-            <p class="blog-desc">
-              At our latest 10 Academy AI Discussion Meetup in Addis Ababa, the
-              conversation got deep, not just about the future of work, but also
-              how AI might widen or narrow the global opportunity divide.
-            </p>
-          </div>
-
-          <!-- CARD 2 -->
-          <div class="blog-card">
-            <a href="post2.html">
-              <img
-                src="../Image/pexels_tara_winstead_8386440_726ff48eb0.jpg"
-                alt="Blog 2"
-                class="blog-img"
-              />
-            </a>
-
-            <a href="category-ai.html" class="blog-tag">AI</a>
-
-            <a href="post2.html" class="blog-title-link">
-              <h3>Africa’s Rising Power: The AI Talent Shaping the Future</h3>
-            </a>
-
-            <p class="blog-desc">
-              Across Africa, a quiet revolution is unfolding — powered by young
-              AI talent reshaping industries, innovating solutions, and building
-              the foundations of a smarter, more inclusive digital Africa.
-            </p>
-          </div>
-
-          <!-- CARD 3 -->
-          <div class="blog-card">
-            <a href="post3.html">
-              <img
-                src="../Image/20251015_190537_30fc6fc258.jpg"
-                alt="Blog 3"
-                class="blog-img"
-              />
-            </a>
-
-            <a href="category-ai-meetup.html" class="blog-tag">AI Meetup</a>
-
-            <a href="post3.html" class="blog-title-link">
-              <h3>
-                What Will Be the Greatest Change AI Brings to Our Society?
-              </h3>
-            </a>
-
-            <p class="blog-desc">
-              From education to healthcare and governance, AI promises
-              transformations that could redefine how people live, work, and
-              interact — raising both exciting opportunities and big ethical
-              questions.
-            </p>
-          </div>
-        </div>
-      </section>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-logo">
+        <img src="./Image/logo-dark.png" alt="10 Academy Logo" />
+      </div>
+      <div class="footer-col">
+        <h4>Trainings</h4>
+        <a href="javascript:void(0)">Overview</a>
+        <a href="javascript:void(0)">AI-Enabled Full-Stack Developer</a>
+        <a href="javascript:void(0)">Intensive Training</a>
+        <a href="javascript:void(0)">University to Jobs (U2J)</a>
+        <a href="javascript:void(0)">KAIM</a>
+        <a href="javascript:void(0)">Career Skills Training</a>
+        <a href="javascript:void(0)">Self-Paced Learning</a>
+      </div>
+      <div class="footer-col">
+        <h4>Solutions</h4>
+        <a href="javascript:void(0)">for Trainees</a>
+        <a href="javascript:void(0)">for Universities</a>
+        <a href="javascript:void(0)">for Companies</a>
+        <a href="javascript:void(0)">for Funders & Ecosystem Leaders</a>
+      </div>
+      <div class="footer-col">
+        <a href="javascript:void(0)">Product</a>
+        <a href="javascript:void(0)">Impact</a>
+        <a href="javascript:void(0)">Blog</a>
+        <a href="javascript:void(0)">About</a>
+      </div>
+      <div class="footer-col footer-contact">
+        <h4><a href="javascript:void(0)">Contact us</a></h4>
+        <p>Headquarters</p>
+        <p>22 Mazoria, Comet Building, 2nd floor,<br>Addis Ababa, Ethiopia</p>
+        <p>1450 El Camino Real Santa Clara,<br>CA 95050 USA</p>
+      </div>
     </div>
-
-    <footer class="footer">
-      <div class="footer-container">
-        <!-- Logo -->
-        <div class="footer-logo">
-          <img src="./Image/logo-dark.png" alt="10 Academy Logo" />
-        </div>
-
-        <!-- Trainings -->
-        <div class="footer-col">
-          <h4>Trainings</h4>
-          <a href="#">Overview</a>
-          <a href="#">Intensive Training</a>
-          <a href="#">University to Jobs (U2J)</a>
-          <a href="#">KAIM</a>
-          <a href="#">Career Skills Training</a>
-        </div>
-
-        <!-- Solutions -->
-        <div class="footer-col">
-          <h4>Solutions</h4>
-          <a href="#">for Trainees</a>
-          <a href="#">for Universities</a>
-          <a href="#">for Companies</a>
-          <a href="#">for Funders & Ecosystem Leaders</a>
-        </div>
-
-        <!-- Product -->
-        <div class="footer-col">
-          <h4> <a href="#">Product</a> </h4> 
-          <a href="#">Impact</a>
-          <a href="#">Blog</a>
-          <a href="#">About</a>
-        </div>
-
-        <!-- Contact -->
-        <div class="footer-col footer-contact">
-          <h4> <a href="#">Contact us</a> </h4>
-          <p>Headquarters</p>
-         <p>
-  22 Mazoria, Comet Building, 2nd floor,<br>
-  Addis Ababa, Ethiopia
-</p>
-
-<p>
-  1450 El Camino Real Santa Clara,<br>
-  CA 95050 USA
-</p>
-
-        </div>
+    <div class="footer-bottom">
+      <div class="footer-left">10 Academy. All rights reserved. &copy; 2026</div>
+      <div class="footer-right">
+        <a href="https://x.com/10acad" target="_blank"><img src="./Image/X_logo.png" /></a>
+        <a href="https://www.instagram.com/10_acad" target="_blank"><img src="./Image/insagram.png" /></a>
+        <a href="https://www.facebook.com/10acad" target="_blank"><img src="./Image/facebook.png" /></a>
+        <a href="https://www.linkedin.com/school/10acad" target="_blank"><img src="./Image/lindlen.webp" /></a>
       </div>
+    </div>
+  </footer>
 
-      <!-- Bottom Bar: copyright + social icons horizontal -->
-      <div class="footer-bottom">
-        <div class="footer-left">10 Academy. All rights reserved. © 2025</div>
-
-        <div class="footer-right">
-          <a href="#"><img src="./Image/X_logo.png" /></a>
-          <a href="#"><img src="./Image/insagram.png" /></a>
-          <a href="#"><img src="./Image/facebook.png" /></a>
-          <a href="#"><img src="./Image/lindlen.webp" /></a>
-        </div>
-      </div>
-    </footer>
-
-
-
-  
-    
-
-    <script src="./Script/Home.js"></script>
-  </body>
+  <script src="./Script/Home.js"></script>
+</body>
 </html>
-
-
-
-</html>
-
-
-

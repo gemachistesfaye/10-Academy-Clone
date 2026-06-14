@@ -9,24 +9,24 @@
         {
           heading: "for Trainees",
           text: "Personalized, job-aligned training in AI, data, and career skills",
-          link: "#"
+          link: "/solutions/trainees"
         },
         {
           heading: "for Universities",
           text: "Use our tenx system to deliver job-aligned training with personalized instant grading",
-          link: "#"
+          link: "/solutions/universities"
         }
       ],
       right: [
         {
           heading: "for Companies",
           text: "Upskill your team in AI, data, careers and no-code tools with contextualized training",
-          link: "#"
+          link: "/solutions/companies"
         },
         {
           heading: "for Funders & Ecosystem Leaders",
           text: "Fund scalable, proven workforce development solutions with clear ROI",
-          link: "#"
+          link: "/solutions/funders-ecosystem"
         }
       ]
     },
@@ -34,28 +34,38 @@
     trainings: {
       title: "Trainings",
       left: [
-        { heading: "Overview", text: "", link: "#" },
+        { heading: "Overview", text: "", link: "/trainings" },
+        {
+          heading: "AI-Enabled Full-Stack Developer",
+          text: "New training program launching June 19, 2026",
+          link: "/trainings/ai-enabled-full-stack-developer"
+        },
         {
           heading: "Intensive Training",
           text: "High impact program designed to launch early career professionals into global AI and data careers.",
-          link: "#"
+          link: "/trainings/intensive"
         },
         {
           heading: "University to Jobs (U2J)",
           text: "Bridge the gap between academic education and job market expectations",
-          link: "#"
+          link: "/trainings/u2j"
         }
       ],
       right: [
         {
           heading: "KAIM",
-          text: "Designed to build job-ready AI Engineers to power Ethiopia’s FinTech sector",
-          link: "#"
+          text: "Designed to build job-ready AI Engineers to power Ethiopia's FinTech sector",
+          link: "/trainings/kaim"
         },
         {
           heading: "Career Skills Training",
           text: "Practical, AI-based course designed to improve digital literacy, communication, and workplace readiness for early professionals.",
-          link: "#"
+          link: "/trainings/career-skills-training"
+        },
+        {
+          heading: "Self-Paced Learning",
+          text: "Learn at your own pace with our flexible online courses",
+          link: "/trainings/self-paced-learning"
         }
       ]
     }
@@ -226,3 +236,39 @@ accordionItems.forEach(item => {
     symbol.textContent = item.classList.contains("active") ? "×" : "+";
   });
 });
+
+/* =========================================================
+   MOBILE HAMBURGER MENU
+========================================================= */
+const hamburger = document.getElementById("hamburger");
+const navMenu = document.querySelector(".nav-menu");
+
+if (hamburger && navMenu) {
+  hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    navMenu.classList.toggle("active");
+    const expanded = hamburger.getAttribute("aria-expanded") === "true";
+    hamburger.setAttribute("aria-expanded", !expanded);
+  });
+
+  // Close menu when clicking a link
+  navMenu.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      hamburger.classList.remove("active");
+      navMenu.classList.remove("active");
+      hamburger.setAttribute("aria-expanded", "false");
+    });
+  });
+}
+
+/* =========================================================
+   ANNOUNCEMENT BAR — DISMISS ON CLOSE
+========================================================= */
+const announcementBar = document.getElementById("announcementBar");
+const announcementClose = document.getElementById("announcementClose");
+
+if (announcementClose && announcementBar) {
+  announcementClose.addEventListener("click", () => {
+    announcementBar.classList.add("hidden");
+  });
+}
